@@ -1,0 +1,51 @@
+% Copyright (c) 2020 Carl Martin Ludvig Sinander.
+
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+% GNU General Public License for more details.
+
+% You should have received a copy of the GNU General Public License
+% along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+\begin{tikzpicture}[scale=1]
+	
+	% criterion
+	\draw plot [smooth] coordinates {(0.25,0.25/2) (1.5,5/2) (2.5,7/2) (4.5,7.75/2) (6.25,6.5/2) (7.75,0.25/2)};
+	\draw (7,7/2) node[anchor=east] {$Q_n$};
+
+	% true value
+	\draw[-,dotted] (2.5,0/2)--(2.5,7/2);
+	\draw (2.5,-0.71) node[anchor=south] {$\theta_0$};
+
+	% estimate
+	\draw[-,dotted] (4.4,0/2)--(4.4,7.76/2);
+	\draw (4.4,-0.71) node[anchor=south] {$\widehat{\theta}_n$};
+
+	% score
+	\draw[-] (1.5,6.1/2)--(3.5,7.9/2);
+
+	% Wald
+	%\draw[<->] (2.5,3)--(4.4,3);
+	%\draw (6.9/2,3) node[anchor=north] {$W$};
+
+	% LR
+	\draw[-,dotted] (0,7/2)--(2.5,7/2);
+	\draw[-,dotted] (0,7.76/2)--(4.4,7.76/2);
+	\draw (0,7/2-0.07) node[anchor=east] {$Q_n(\theta_0)$};
+	\draw (0,7.76/2+0.07) node[anchor=east] {$Q_n\big(\widehat{\theta}_n\big)$};
+	%\draw[<->] (1.2,7)--(1.2,7.76);
+	%\draw (1.2,14.76/2) node[anchor=east] {$\mathit{LR}$};
+
+
+	% axes
+	\draw[->] (0,0) -- (8,0);
+	\draw[->] (0,0) -- (0,8/2+1);
+	\fill (-0.007,-0.007) rectangle (0.007,0.007);
+
+\end{tikzpicture}
